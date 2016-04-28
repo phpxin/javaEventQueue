@@ -1,0 +1,11 @@
+testWeb
+目录为模拟第三方web服务器程序
+
+thriftFiles
+目录为thrift生成的程序文件，和IDL接口文件
+
+thriftPhpClient
+目录为php客户端例子
+
+thriftQueue
+目录为java实现的事件处理队列主程序
