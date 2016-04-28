@@ -14,15 +14,15 @@ public class ThriftTestServer {
 	public static void main(String[] args) { 
 		
 		try { 
-			// ÉèÖÃ·şÎñ¶Ë¿ÚÎª 7911 
+			// è®¾ç½®æœåŠ¡ç«¯å£ä¸º 7911 
 			//TServerTransport serverTransport = new TServerSocket(7911); 
 			//serverTransport.
 			TServerTransport serverTransport = new TServerSocket(new InetSocketAddress("127.0.0.1", 7911)); 
 			
-			// ÉèÖÃĞ­Òé¹¤³§Îª TBinaryProtocol.Factory 
+			// è®¾ç½®åè®®å·¥å‚ä¸º TBinaryProtocol.Factory 
 			//Factory proFactory = new TBinaryProtocol.Factory(); 
 			
-			// ¹ØÁª´¦ÀíÆ÷Óë Hello ·şÎñµÄÊµÏÖ
+			// å…³è”å¤„ç†å™¨ä¸ Hello æœåŠ¡çš„å®ç°
 			TProcessor processor = new ThriftTest.Processor(new ThriftTestImpl()); 
 			
 			//TServer server = new TThreadPoolServer(processor, serverTransport, proFactory); 

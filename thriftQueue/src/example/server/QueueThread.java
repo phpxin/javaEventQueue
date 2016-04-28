@@ -27,13 +27,13 @@ public class QueueThread implements Runnable {
 	
 	public static void addUrl(String _url) {
 		// 1.
-		// ÕâÀïÊ¹ÓÃ¶ÓÁĞÓĞ¿ÉÄÜ»áÓÉÓÚÖØÆô½ø³ÌÔì³ÉÊÂ¼ş¶ªÊ§£¬ÕâÀïÌá¹©Ò»¸öË¼Â·£¬ÓÃRedisÀ´´¦Àí
+		// è¿™é‡Œä½¿ç”¨é˜Ÿåˆ—æœ‰å¯èƒ½ä¼šç”±äºé‡å¯è¿›ç¨‹é€ æˆäº‹ä»¶ä¸¢å¤±ï¼Œè¿™é‡Œæä¾›ä¸€ä¸ªæ€è·¯ï¼Œç”¨Redisæ¥å¤„ç†
 		// 2.
-		// ¹ØÓÚ´¦Àí¶à¸öÊÂ¼ş£¬¿ÉÒÔ¶¨ÒåÈô¸ÉĞ­Òé£¬¸ñÊ½Èç£º
+		// å…³äºå¤„ç†å¤šä¸ªäº‹ä»¶ï¼Œå¯ä»¥å®šä¹‰è‹¥å¹²åè®®ï¼Œæ ¼å¼å¦‚ï¼š
 		// {"type":"sendmsg","values":{"par1":"val1" ...}}
-		// È»ºóÖÆ×÷Ò»¸öÓĞÏŞ×´Ì¬»ú£¬Í¨¹ı²»Í¬µÄÊÂ¼şÖ´ĞĞ²»Í¬µÄ²Ù×÷£¬Èç·¢¶ÌĞÅ¡¢·¢ÓÊ¼ş¡¢ÏÂÔØÍ¼Æ¬¡¢ÉÏ´«Í¼Æ¬¡¢Í¬²½Êı¾İµÈ
+		// ç„¶ååˆ¶ä½œä¸€ä¸ªæœ‰é™çŠ¶æ€æœºï¼Œé€šè¿‡ä¸åŒçš„äº‹ä»¶æ‰§è¡Œä¸åŒçš„æ“ä½œï¼Œå¦‚å‘çŸ­ä¿¡ã€å‘é‚®ä»¶ã€ä¸‹è½½å›¾ç‰‡ã€ä¸Šä¼ å›¾ç‰‡ã€åŒæ­¥æ•°æ®ç­‰
 		// 3.
-		// Èç¹ûĞèÒª×öµÄÁé»îĞ©²»¶ÏµØÌí¼ÓÊÂ¼ş£¬¿ÉÒÔÊ¹ÓÃjavaµÄ·´Éä»úÖÆ×ö£¬·â×°Ò»¸öÊÂ¼ş´¦ÀíÀà£¬Ã¿¸ö³ÉÔ±º¯ÊıÎª´¦ÀíÒ»¸öÊÂ¼ş£¬Ğ­ÒéÖĞ°üº¬´¦ÀíÊÂ¼şµÄº¯ÊıÃû
+		// å¦‚æœéœ€è¦åšçš„çµæ´»äº›ä¸æ–­åœ°æ·»åŠ äº‹ä»¶ï¼Œå¯ä»¥ä½¿ç”¨javaçš„åå°„æœºåˆ¶åšï¼Œå°è£…ä¸€ä¸ªäº‹ä»¶å¤„ç†ç±»ï¼Œæ¯ä¸ªæˆå‘˜å‡½æ•°ä¸ºå¤„ç†ä¸€ä¸ªäº‹ä»¶ï¼Œåè®®ä¸­åŒ…å«å¤„ç†äº‹ä»¶çš„å‡½æ•°å
 		QueueThread.urls.add(_url) ;
 	}
 	
@@ -73,7 +73,7 @@ public class QueueThread implements Runnable {
 			saveData(jsonStr) ;
 			
 		} catch (Exception e) {
-			//ÕâÀïÓ¦¸Ã¼ÇÂ¼ÈÕÖ¾
+			//è¿™é‡Œåº”è¯¥è®°å½•æ—¥å¿—
 			System.out.println("catch " + e.getClass().toString() + " msg is " +  e.getMessage());
 		}
 		
@@ -121,7 +121,7 @@ public class QueueThread implements Runnable {
 					gdbcConn.close();
 				
 			}catch(Exception e){
-				//¼ÇÂ¼ÈÕÖ¾
+				//è®°å½•æ—¥å¿—
 				System.out.println("catch " + e.getClass().toString() + " msg is " +  e.getMessage());
 			}
 			
@@ -145,10 +145,10 @@ public class QueueThread implements Runnable {
 			}
 			
 		}catch(NoSuchElementException e){
-			//Õâ¸öÒì³£Ó¦¸Ãµ¥¶À´¦Àí£¬»òÖØÆô¶ÓÁĞ·şÎñ
+			//è¿™ä¸ªå¼‚å¸¸åº”è¯¥å•ç‹¬å¤„ç†ï¼Œæˆ–é‡å¯é˜Ÿåˆ—æœåŠ¡
 			System.out.println("catch " + e.getClass().toString() + " msg is " +  e.getMessage());
 		}catch (Exception e) {
-			//ÕâÀïÓ¦¸Ã¼ÇÂ¼ÈÕÖ¾
+			//è¿™é‡Œåº”è¯¥è®°å½•æ—¥å¿—
 			System.out.println("catch " + e.getClass().toString() + " msg is " +  e.getMessage());
 		}
 		
